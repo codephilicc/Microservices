@@ -1,6 +1,7 @@
 package com.learn.user.service.services.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,16 +9,20 @@ import org.springframework.stereotype.Service;
 import com.learn.user.service.entities.User;
 import com.learn.user.service.exception.ResourceNotFoundexception;
 import com.learn.user.service.repositories.UserRepository;
+import com.learn.user.service.services.UserService;
 
 
 @Service
-public class UserService implements com.learn.user.service.services.UserService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
 	
 	@Override
 	public User saveUser(User user) {
+		//generate unique userid		
+		String randomUserId = UUID.randomUUID().toString();
+		user.setUserId(randomUserId);
 		return userRepository.save(user);
 	}
 
