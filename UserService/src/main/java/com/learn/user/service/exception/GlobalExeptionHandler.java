@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.learn.user.service.payload.ApiResponse;
-
 @RestControllerAdvice
 public class GlobalExeptionHandler {
 

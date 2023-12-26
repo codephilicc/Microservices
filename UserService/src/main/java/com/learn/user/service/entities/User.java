@@ -3,8 +3,6 @@ package com.learn.user.service.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.event.PrintJobAttributeEvent;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
