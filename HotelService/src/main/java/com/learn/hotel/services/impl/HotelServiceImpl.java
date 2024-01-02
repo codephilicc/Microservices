@@ -12,6 +12,7 @@ import com.learn.hotel.repositories.HotelRepository;
 import com.learn.hotel.services.HotelService;
 
 
+
 @Service
 public class HotelServiceImpl implements HotelService{
 	
