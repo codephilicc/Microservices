@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +52,14 @@ public class UserServiceImpl implements UserService {
 		
 		ArrayList<Rating> ratingsOfUser = restTemplate.getForObject("http://localhost:8083/ratings/users/"+user.getUserId(), ArrayList.class);
 		logger.info("{}" ,  ratingsOfUser);
+		
+		List<Rating> ratingList = ratingsOfUser.stream().map(rating ->{
+			//api call to hotel service to get the hotel
+			
+			
+			return rating;
+		}).collect(Collectors.toList());
+		
 		user.setRatings(ratingsOfUser);
 		
 		return user;
