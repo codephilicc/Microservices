@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 		// http://localhost:8083/ratings/users/86fd4b90-0e6b-4c14-885b-3fb4011a9428
 
 		Rating[] ratingsOfUser = restTemplate
-				.getForObject("http://localhost:8083/ratings/users/" + user.getUserId(), Rating[].class);
+				.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
 		logger.info("{}", ratingsOfUser);
 		
 		List<Rating> ratings = Arrays.stream(ratingsOfUser).toList();
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
 			// http://localhost:8082/hotels/dcdeeb03-03d4-49e8-87d5-2da466789430
 
 			ResponseEntity<Hotel> forEntity = restTemplate
-					.getForEntity("http://localhost:8082/hotels/"+rating.getHotelId(), Hotel.class);
+					.getForEntity("http://HOTEL-SERVICE/hotels/"+rating.getHotelId(), Hotel.class);
 			Hotel hotel = forEntity.getBody();
 			logger.info("{}", forEntity.getStatusCode());
 
